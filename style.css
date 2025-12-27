@@ -1,0 +1,84 @@
+:root {
+    --xmas-red: #d63031;
+    --xmas-green: #27ae60;
+    --ice-blue: #74b9ff;
+    --bg-dark: #2d3436;
+}
+
+body {
+    background: radial-gradient(circle, #2d3436 0%, #000000 100%);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Снег на фоне */
+.snow::after {
+    content: "❄ ❄ ❄ ❄ ❄ ❄ ❄ ❄ ❄ ❄ ❄ ❄ ❄ ❄ ❄ ❄";
+    position: fixed;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    font-size: 25px;
+    animation: snowFall 10s linear infinite;
+    color: white;
+    opacity: 0.3;
+}
+
+@keyframes snowFall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+#game-container {
+    width: 450px;
+    background: rgba(45, 52, 54, 0.9);
+    border: 3px solid var(--ice-blue);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 50px rgba(116, 185, 255, 0.2);
+    text-align: center;
+}
+
+.game-title { color: var(--ice-blue); text-shadow: 0 0 10px white; margin-top: 0; }
+
+/* Панели и бары */
+.player-panel { background: #1e272e; padding: 15px; border-radius: 12px; margin-bottom: 15px; }
+
+.bar { width: 100%; height: 22px; background: #444; border-radius: 11px; position: relative; overflow: hidden; margin-bottom: 8px; }
+.bar-text { position: absolute; width: 100%; left: 0; top: 0; font-size: 12px; font-weight: bold; line-height: 22px; text-shadow: 1px 1px 2px black; }
+
+.hp-fill { width: 100%; height: 100%; background: var(--xmas-red); transition: width 0.3s; }
+.xp-fill { width: 0%; height: 100%; background: var(--xmas-green); transition: width 0.3s; }
+
+/* Враг */
+#enemy-window { background: rgba(0,0,0,0.4); padding: 15px; border-radius: 15px; border: 2px solid transparent; transition: 0.3s; }
+.boss-active { border-color: gold !important; background: rgba(212, 175, 55, 0.1) !important; }
+
+#enemy-img { height: 120px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); }
+
+/* Кнопки */
+.btn { border: none; border-radius: 8px; cursor: pointer; color: white; transition: 0.2s; }
+.btn:active { transform: scale(0.95); }
+.btn:disabled { filter: grayscale(1); cursor: not-allowed; }
+
+.btn-main { width: 100%; padding: 15px; background: var(--xmas-red); font-size: 20px; font-weight: bold; margin-bottom: 10px; }
+.skills { display: flex; gap: 10px; }
+.btn-skill { flex: 1; padding: 10px; background: var(--ice-blue); font-size: 12px; }
+
+.cd { display: block; font-size: 10px; opacity: 0.7; }
+
+#log { height: 45px; margin-top: 15px; font-size: 14px; color: #dfe6e9; display: flex; align-items: center; justify-content: center; }
+
+/* Анимация тряски при получении урона */
+.shake { animation: shakeAnim 0.3s; }
+@keyframes shakeAnim {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}

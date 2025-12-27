@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Новогоднее RPG Приключение</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Эффект снега -->
+    <div class="snow"></div>
+
+    <div id="game-container">
+        <h1 class="game-title">🎄 Winter Quest ❄️</h1>
+
+        <!-- Панель игрока -->
+        <div class="player-panel">
+            <div class="player-info">
+                <span>LVL <b id="lvl">1</b></span>
+                <span>⚔️ <b id="atk">15</b></span>
+            </div>
+            
+            <div class="bar-label">HP Игрока</div>
+            <div class="bar hp-bar-bg">
+                <div id="player-hp-fill" class="hp-fill"></div>
+                <span id="player-hp-text" class="bar-text">100/100</span>
+            </div>
+
+            <div class="bar xp-bar-bg">
+                <div id="xp-fill" class="xp-fill"></div>
+                <span id="xp-text" class="bar-text">XP: 0/100</span>
+            </div>
+        </div>
+
+        <!-- Окно боя -->
+        <div id="enemy-window">
+            <h2 id="enemy-name">Загрузка...</h2>
+            <div class="sprite-box">
+                <img id="enemy-img" src="" alt="monster">
+            </div>
+            <div class="bar hp-bar-bg">
+                <div id="enemy-hp-fill" class="hp-fill"></div>
+                <span id="enemy-hp-text" class="bar-text">50/50</span>
+            </div>
+            <div id="enemy-stats" class="enemy-atk-text">Урон врага: 5</div>
+        </div>
+
+        <!-- Кнопки -->
+        <div class="actions">
+            <button id="btn-attack" class="btn btn-main">⚔️ Атаковать</button>
+            <div class="skills">
+                <button id="skill-power" class="btn btn-skill">
+                    <b>Супер удар</b>
+                    <span id="cd-power" class="cd">Готов</span>
+                </button>
+                <button id="skill-fire" class="btn btn-skill">
+                    <b>Файрболл</b>
+                    <span id="cd-fire" class="cd">Готов</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="log">Ваш ход!</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
